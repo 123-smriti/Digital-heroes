@@ -12,7 +12,7 @@ export default function AdminWinners() {
     setLoading(true)
     const { data } = await supabase
       .from('winners')
-      .select('*, profile:profiles(full_name, email), draw:draws(draw_month)')
+      .select('*, profile:profiles!winners_user_id_fkey(full_name, email), draw:draws(draw_month)')
       .order('created_at', { ascending: false })
     setWinners(data ?? [])
     setLoading(false)
