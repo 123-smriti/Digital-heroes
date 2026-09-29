@@ -11,11 +11,11 @@ for the trainee selection process.
 
 **Admin login**
 - Email: `sam@gmail.com`
-- Password: `123*****`
+- Password: `1********`
 
 **Subscriber login**
 - Email: `pam@gmail.com`
-- Password: `123*****`
+- Password: `1*******`
 
 **Stripe test card** (for the subscribe flow):
 `4242 4242 4242 4242`, any future expiry, any CVC.
