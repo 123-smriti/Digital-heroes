@@ -46,15 +46,4 @@ for the trainee selection process.
 - **Hosting:** Vercel
 
 
-## Project structure
 
-src/
-  lib/            Supabase-backed domain logic (scores, draws, subscriptions, charities, storage)
-  context/        Auth context (session + profile)
-  components/     Shared UI (Navbar, ScoreEntry, CharitySelector, route guards)
-  pages/          Public + subscriber pages
-  pages/admin/    Admin control room, tabbed by function
-  styles/         Design tokens + global CSS
-supabase/
-  schema.sql      Full DB schema, RLS policies, storage bucket, seed data
-```
