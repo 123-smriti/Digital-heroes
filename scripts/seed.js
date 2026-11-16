@@ -6,12 +6,7 @@
  * Requires the SERVICE ROLE key (not the anon key) because it creates real
  * auth users and writes past RLS. Never ship this key to the browser / put
  * it in a VITE_ variable.
- *
- * Usage:
- *   1. In your Supabase dashboard: Project Settings → API → copy the
- *      "service_role" secret key.
- *   2. Add it to .env as SUPABASE_SERVICE_ROLE_KEY=...
- *   3. npm run seed
+
  */
 import 'dotenv/config'
 import { createClient } from '@supabase/supabase-js'
@@ -41,7 +36,11 @@ const FAKE_USERS = [
   { fullName: 'Grace Kim', email: 'grace.demo@digitalheroes.test' },
   { fullName: 'Dev Sharma', email: 'dev.demo@digitalheroes.test' },
 ]
-const DEMO_PASSWORD = 'DemoPass123!'
+const DEMO_PASSWORD = process.env.DEMO_PASSWORD
+
+if (!DEMO_PASSWORD) {
+  throw new Error('Missing DEMO_PASSWORD in environment')
+}
 const PLAN_PRICE_CENTS = { monthly: 1500, yearly: 15000 }
 
 function randInt(min, max) {
