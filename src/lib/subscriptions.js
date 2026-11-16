@@ -68,17 +68,36 @@ export async function upsertSubscription(userId, { plan, charityId, charityPerce
   return data
 }
 
+
 export async function cancelSubscription(subscription) {
+  // Get the current authenticated session
+  const {
+    data: { session },
+    error: sessionError,
+  } = await supabase.auth.getSession()
+
+  if (sessionError || !session?.access_token) {
+    throw new Error('Please log in again to cancel your subscription.')
+  }
+
   const res = await fetch('/api/cancel-subscription', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${session.access_token}`,
+    },
     body: JSON.stringify({
       subscriptionId: subscription.id,
-      stripeSubscriptionId: subscription.stripe_subscription_id,
     }),
   })
+
   const data = await res.json().catch(() => ({}))
-  if (!res.ok) throw new Error(data.error ?? 'Could not cancel subscription.')
+
+  if (!res.ok) {
+    throw new Error(data.error ?? 'Could not cancel subscription.')
+  }
+
+  return data
 }
 
 export function formatCents(cents, currency = 'USD') {
