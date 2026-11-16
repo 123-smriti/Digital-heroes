@@ -9,16 +9,7 @@ for the trainee selection process.
 
 **Live URL:** https://digital-heroes-sigma-weld.vercel.app
 
-**Admin login**
-- Email: `sam@gmail.com`
-- Password: `********`
 
-**Subscriber login**
-- Email: `pam@gmail.com`
-- Password: `*******`
-
-**Stripe test card** (for the subscribe flow):
-`4242 4242 4242 4242`, any future expiry, any CVC.
 
 ## What it does
 
