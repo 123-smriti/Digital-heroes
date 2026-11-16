@@ -33,12 +33,10 @@ export default function Subscribe() {
       // written once Stripe confirms payment, by api/stripe-webhook.js —
       // never trust the client for that.
       const url = await createCheckoutSession({
-        plan,
-        charityId,
-        charityPercent,
-        userId: user.id,
-        userEmail: user.email,
-      })
+  plan,
+  charityId,
+  charityPercent,
+})
       window.location.href = url
     } catch (e) {
       setError(e.message)
