@@ -1,4 +1,4 @@
-# Digital Heroes
+# Golf_Heroes
 
 A golf performance-tracking platform combined with monthly charity draws —
 subscribe, log your rounds, back a cause, and get entered into a prize pool
